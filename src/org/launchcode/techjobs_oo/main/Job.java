@@ -1,4 +1,4 @@
-package org.launchcode.techjobs_oo;
+package org.launchcode.techjobs_oo.main;
 
 import java.util.Objects;
 
@@ -40,6 +40,38 @@ public class Job {
         if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
         return id == job.id;
+    }
+
+    @Override
+    public String toString() {
+        if ((name.equals("")||name.equals(null)) &&
+                (employer.getValue().equals("")||employer==null) &&
+                (location.getValue().equals("")||employer==null) &&
+                (positionType.getValue().equals("")||positionType==null) &&
+                (coreCompetency.getValue().equals("")||coreCompetency==null)){
+            return "OOPS! This job does not seem to exist.";
+        }
+        if (name.equals("") || name.equals(null)){
+            name="Data not available";
+        }
+        if (employer.getValue().equals("") || employer==null){
+            employer.setValue("Data not available");
+        }
+        if (location.getValue().equals("") || location==null){
+            location.setValue("Data not available");
+        }
+        if (positionType.getValue().equals("") || positionType==null){
+            positionType.setValue("Data not available");
+        }
+        if (coreCompetency.getValue().equals("") || coreCompetency==null){
+            coreCompetency.setValue("Data not available");
+        }
+        return "\nID: " + id +
+                "\nName: " + name +
+                "\nEmployer: " + employer +
+                "\nLocation: " + location +
+                "\nPosition Type: " + positionType +
+                "\nCore Competency: " + coreCompetency + "\n";
     }
 
     @Override
